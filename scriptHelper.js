@@ -41,6 +41,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
         alert("All fields are required!");
+
         //checking pilot,co-pilot are strings & fuelLevel,cargoLevel are numbers:     
        
      }else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
@@ -49,13 +50,14 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
             alert("Please enter numerical values for Fuel Level and Cargo Mass");
         }
-        //status change for pilot and copilot:\
+
+        //status change for pilot and copilot:
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
         copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
         list.style.visibility = 'hidden';
        
         //checking fuel levels,cargo mass and updating faulty items:
-        console.log ("outside less than with number " + Number(fuelLevel));
+       
         if (Number(fuelLevel) < 10000) {
             fuelStatus.innerHTML = `Fuel level too low for launch`;
             list.style.visibility = 'visible'; //list is faulty item
@@ -76,10 +78,8 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         }
 
         }
-    
  
- 
- async function myFetch() {
+  async function myFetch() {
 
     let planetsReturned;
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
