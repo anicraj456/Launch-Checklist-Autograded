@@ -14,6 +14,19 @@ window.addEventListener("load", function() {
     const cargoLevel = document.querySelector("input[name=cargoMass]").value;
     const list = document.getElementById("faultyItems");
 
+    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
+        alert("All fields are required!");
+
+        //checking pilot,co-pilot are strings & fuelLevel,cargoLevel are numbers:     
+       
+     }else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
+            alert("Make sure to enter vaild information for each field");
+        }
+        else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
+            alert("Please enter numerical values for Fuel Level and Cargo Mass");
+        }
+
+
     //calling formsubmission to validate and update list :
    formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
       

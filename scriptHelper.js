@@ -39,7 +39,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     const cargoStatus = document.getElementById("cargoStatus");
     const launchStatus = document.getElementById("launchStatus");
 
-    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
+    /*if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
         alert("All fields are required!");
 
         //checking pilot,co-pilot are strings & fuelLevel,cargoLevel are numbers:     
@@ -49,9 +49,10 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         }
         else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
             alert("Please enter numerical values for Fuel Level and Cargo Mass");
-        }
+        }*/
 
         //status change for pilot and copilot:
+        
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
         copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
         list.style.visibility = 'hidden';
@@ -63,7 +64,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
             list.style.visibility = 'visible'; //list is faulty item
             launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
             launchStatus.style.color = `red`;
-       } else if (Number(cargoLevel) > 10000 && Number(fuelLevel) >= 10000) {
+       } else if (Number(cargoLevel) >= 10000 && Number(fuelLevel) >= 10000) {
         fuelStatus.innerHTML = `Fuel level high enough for launch`;
             cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
             list.style.visibility = `visible`;
