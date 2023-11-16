@@ -41,7 +41,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         
         //checking fuel levels,cargo mass and updating faulty items:
        
-       if (Number(fuelLevel) < 10000) {
+       if (Number(fuelLevel) < 10000 && Number(cargoLevel) < 10000 ) {
             list.style.visibility = 'visible'; //list is faulty item   
             pilotStatus.style.visibility = 'visible';
             copilotStatus.style.visibility = 'visible'; 
@@ -50,6 +50,19 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
             fuelStatus.innerHTML = `Fuel level too low for launch`; 
             fuelStatus.style.visibility = 'visible';
             cargoStatus.style.visibility = 'visible';
+            cargoStatus.innerHTML = `Cargo mass low enough for launch`;
+            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
+            launchStatus.style.color = `red`;
+       }else if (Number(fuelLevel) < 10000 && Number(cargoLevel) >=10000 ) {
+            list.style.visibility = 'visible'; //list is faulty item   
+            pilotStatus.style.visibility = 'visible';
+            copilotStatus.style.visibility = 'visible'; 
+            pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+            copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
+            fuelStatus.innerHTML = `Fuel level too low for launch`; 
+            fuelStatus.style.visibility = 'visible';
+            cargoStatus.style.visibility = 'visible';
+            cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
             launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
             launchStatus.style.color = `red`;
        } else if (Number(cargoLevel) >= 10000 && Number(fuelLevel) >= 10000) {
